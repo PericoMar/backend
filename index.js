@@ -13,13 +13,14 @@ app.use((req, res, next) => {
 
 // Importar las rutas
 const peliculasRoutes = require('./src/routes/peliculasRoutes');
-// const sesionesRoutes = require('./src/routes/sesionesRoutes');
+const sesionesRoutes = require('./src/routes/sesionesRoutes');
 // const reservasRoutes = require('./src/routes/reservasRoutes');
 // const usuariosRoutes = require('.src/routes/usuariosRoutes');
 // Importa otras rutas según sea necesario
 
 // Registrar las rutas en la aplicación
 app.use(peliculasRoutes);
+app.use(sesionesRoutes);
 // app.use(sesionesRoutes);
 // app.use(reservasRoutes);
 // app.use(usuariosRoutes);
