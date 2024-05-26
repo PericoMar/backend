@@ -1,6 +1,7 @@
 // index.js
 
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
 
 app.use((req, res, next) => {
@@ -10,19 +11,19 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(bodyParser.json());
 
 // Importar las rutas
 const peliculasRoutes = require('./src/routes/peliculasRoutes');
 const sesionesRoutes = require('./src/routes/sesionesRoutes');
-// const reservasRoutes = require('./src/routes/reservasRoutes');
+const reservasRoutes = require('./src/routes/reservasRoutes');
 // const usuariosRoutes = require('.src/routes/usuariosRoutes');
 // Importa otras rutas según sea necesario
 
 // Registrar las rutas en la aplicación
 app.use(peliculasRoutes);
 app.use(sesionesRoutes);
-// app.use(sesionesRoutes);
-// app.use(reservasRoutes);
+app.use(reservasRoutes);
 // app.use(usuariosRoutes);
 // Usa otras rutas según sea necesario
 
