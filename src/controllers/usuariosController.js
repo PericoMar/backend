@@ -23,7 +23,7 @@ exports.register = async (req, res) => {
     // Crear y guardar el nuevo usuario
     await User.create(email, hashedPassword);
 
-    res.status(201).json({ message: 'Usuario registrado con éxito' });
+    res.status(201).json( {correo: email, passwd: hashedPassword} );
   } catch (error) {
     res.status(500).json({ message: 'Error al registrar usuario', error });
   }
@@ -49,7 +49,7 @@ exports.validateCredentials = async (req, res) => {
       return res.status(400).json({ message: 'Contraseña incorrecta' });
     }
 
-    res.status(200).json({ message: 'Credenciales válidas' });
+    res.status(200).json(user);
   } catch (error) {
     res.status(500).json({ message: 'Error al validar credenciales', error });
   }
