@@ -17,15 +17,13 @@ app.use(bodyParser.json());
 const peliculasRoutes = require('./src/routes/peliculasRoutes');
 const sesionesRoutes = require('./src/routes/sesionesRoutes');
 const reservasRoutes = require('./src/routes/reservasRoutes');
-// const usuariosRoutes = require('.src/routes/usuariosRoutes');
-// Importa otras rutas según sea necesario
+const usuariosRoutes = require('./src/routes/usuariosRoutes');
 
 // Registrar las rutas en la aplicación
 app.use(peliculasRoutes);
 app.use(sesionesRoutes);
 app.use(reservasRoutes);
-// app.use(usuariosRoutes);
-// Usa otras rutas según sea necesario
+app.use(usuariosRoutes);
 
 // Iniciar el servidor
 const PORT = process.env.PORT || 3000;
