@@ -13,16 +13,9 @@ app.use((req, res, next) => {
 
 app.use(bodyParser.json());
 
-// Importar las rutas
-const peliculasRoutes = require('./src/routes/peliculasRoutes');
-const sesionesRoutes = require('./src/routes/sesionesRoutes');
-const reservasRoutes = require('./src/routes/reservasRoutes');
 const usuariosRoutes = require('./src/routes/usuariosRoutes');
 
-// Registrar las rutas en la aplicación
-app.use(peliculasRoutes);
-app.use(sesionesRoutes);
-app.use(reservasRoutes);
+
 app.use(usuariosRoutes);
 
 // Iniciar el servidor
