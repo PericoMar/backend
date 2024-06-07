@@ -14,9 +14,12 @@ app.use((req, res, next) => {
 app.use(bodyParser.json());
 
 const usuariosRoutes = require('./src/routes/usuariosRoutes');
-
+const pesosRoutes = require('./src/routes/pesosRoutes');
+const recetasRoutes = require('./src/routes/recetasRoutes');
 
 app.use(usuariosRoutes);
+app.use(pesosRoutes);
+app.use(recetasRoutes);
 
 // Iniciar el servidor
 const PORT = process.env.PORT || 3000;

@@ -7,7 +7,7 @@ const saltRounds = 10;
 // Registro de usuario
 exports.register = async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const { email, password, nombre, peso, objetivo, altura, sexo } = req.body;
 
     // Verificar si el usuario ya existe
     console.log("email-register",email);
@@ -21,7 +21,7 @@ exports.register = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, saltRounds);
 
     // Crear y guardar el nuevo usuario
-    await User.create(email, hashedPassword);
+    await User.create(email, hashedPassword,  nombre, peso, objetivo, altura, sexo);
 
     res.status(201).json( {correo: email, passwd: hashedPassword} );
   } catch (error) {

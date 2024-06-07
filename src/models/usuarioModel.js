@@ -15,10 +15,10 @@ class User {
     }
   }
 
-  static async create(email, hashedPassword) {
+  static async create(email, hashedPassword, nombre, peso, objetivo, altura, sexo) {
     try {
-      const query = `INSERT INTO Usuarios (correo, passwd) VALUES (?, ?)`;
-      await db.query(query, [email, hashedPassword]);
+      const query = `INSERT INTO Usuarios (correo, passwd, nombre, peso, objetivo, altura, sexo) VALUES (?, ?, ? ,?, ? ,? ,? )`;
+      await db.query(query, [email, hashedPassword, nombre, peso, objetivo, altura, sexo]);
     } catch (error) {
       throw error;
     }
